@@ -1,0 +1,64 @@
+#!/bin/bash
+
+CCs="gcc clang cc CC g++ icc icx armclang xlc armclang++ cl"
+
+if [[ $1 == "-from-make" ]]; then
+  for cc in $CCs; do
+    if command -v $cc 2>&1 >/dev/null
+    then
+      echo $cc
+      exit
+    fi
+  done
+fi
+
+RESET="\033[0m"
+GREEN="\033[1;32m"
+YELLOW="\033[1;33m"	
+RED="\033[0;31m"
+
+function find_cc {
+  echo "====> Checking for CC"
+  for cc in $CCs; do
+    if command -v $cc 2>&1 >/dev/null
+    then
+      echo -e "  ${GREEN}found $cc${RESET}"
+      foundCC=true
+    fi
+  done
+  if ! $foundCC; then
+    echo -e "  ${RED}failure to configure: cannot find a C compiler in user path.${RESET}"
+    echo -e "  ${RED}If you with to use a C compiler other than gcc, modify the CC variable in the Makefile${RESET}"
+  fi
+}
+
+function exists {
+    echo -e "${YELLOW}===> Checking for $1${RESET}"
+    if ! command -v $1 2>&1 >/dev/null
+    then
+        echo -e "  ${RED}failure to configure: cannot find $1 in user path.${RESET}"
+        action=true
+    else
+        echo -e "  ${GREEN}found $1${RESET}"
+    
+    fi
+}
+
+depends_on="nasm ld go uname"
+action=false
+foundCC=false
+
+find_cc
+
+echo "====> Checking for other dependencies"
+
+for cmd in $depends_on; do
+  exists "$cmd"
+done
+
+if $action
+then
+  echo -e "${RED}Some checks failed.${RESET} Install the needed binarys before continuing to compilation."
+else 
+  echo -e "${GREEN}All checks pass!${RESET} You can now run 'make' to compile the project."
+fi
