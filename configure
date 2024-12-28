@@ -17,7 +17,7 @@ function exists {
     fi
 }
 
-depends_on="java"
+depends_on="java gradlew"
 action=false
 
 for cmd in $depends_on; do
