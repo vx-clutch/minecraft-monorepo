@@ -1,4 +1,4 @@
-package com.example.cigarettes;
+package com.cartman.cigarettes;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -29,8 +29,8 @@ import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(ExampleMod.MODID)
-public class ExampleMod
+@Mod(Cigarettes.MODID)
+public class Cigarettes
 {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "cigarettes";
@@ -60,7 +60,7 @@ public class ExampleMod
                 output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
             }).build());
 
-    public ExampleMod(FMLJavaModLoadingContext context)
+    public Cigarettes(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
 
