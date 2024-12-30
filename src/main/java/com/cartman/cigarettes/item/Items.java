@@ -15,6 +15,8 @@ public class Items {
     public static final RegistryObject<Item> cigar = ITEMS.register("cigar",
             () -> new Item(new Item.Properties()));
 
-public static void register(IEventBus EventBus) {ITEMS.register(EventBus);}
+    public static void register(IEventBus EventBus) {
+        ITEMS.register(EventBus);
+    }
 
 }
