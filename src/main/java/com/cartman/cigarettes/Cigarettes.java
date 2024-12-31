@@ -1,5 +1,6 @@
 package com.cartman.cigarettes;
 
+import com.cartman.cigarettes.item.CreativeTab;
 import com.cartman.cigarettes.item.Items;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -43,6 +44,8 @@ public class Cigarettes
     {
         IEventBus modEventBus = context.getModEventBus();
 
+        CreativeTab.register(modEventBus);
+
         Items.register(modEventBus);
 
         // Register the commonSetup method for modloading
@@ -68,8 +71,6 @@ public class Cigarettes
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
-
-
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent

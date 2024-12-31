@@ -1,4 +1,6 @@
 {
   "item.cigarettes.example_item": "Example Item",
-  "item.cigarettes.cigar": "Cigar"
+  "item.cigarettes.cigar": "Cigar",
+
+  "creativetab.cigartab": "500 Cigarettes"
 }
