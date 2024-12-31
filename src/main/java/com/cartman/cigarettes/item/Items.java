@@ -12,7 +12,7 @@ public class Items {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Cigarettes.MODID);
 
-    public static final RegistryObject<Item> cigar = ITEMS.register("cigar",
+    public static final RegistryObject<Item> CIGAR = ITEMS.register("cigar",
             () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus EventBus) {

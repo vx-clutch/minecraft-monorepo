@@ -1,5 +1,6 @@
 package com.cartman.cigarettes;
 
+import com.cartman.cigarettes.item.Items;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -41,6 +42,8 @@ public class Cigarettes
     public Cigarettes(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
+
+        Items.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
