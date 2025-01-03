@@ -1,6 +1,7 @@
 package com.cartman.cigarettes.item;
 
 import com.cartman.cigarettes.Cigarettes;
+import com.cartman.cigarettes.block.CBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -20,6 +21,8 @@ public class CreativeTab {
                     .title(Component.translatable("creativetab.cigartab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(Items.CIGAR.get());
+
+                        pOutput.accept(CBlocks.FIVE_HUNDRED_CIGARETTES.get());
                     })
                     .build());
 

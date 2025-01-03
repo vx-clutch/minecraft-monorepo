@@ -1,5 +1,6 @@
 package com.cartman.cigarettes;
 
+import com.cartman.cigarettes.block.CBlocks;
 import com.cartman.cigarettes.item.CreativeTab;
 import com.cartman.cigarettes.item.Items;
 import com.mojang.logging.LogUtils;
@@ -47,6 +48,7 @@ public class Cigarettes
         CreativeTab.register(modEventBus);
 
         Items.register(modEventBus);
+        CBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
